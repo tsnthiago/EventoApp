@@ -5,33 +5,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Convidado {
 	
-	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private String codigo;
-	private String rg;
+	private long codigo;
+	@Id
+	@NotEmpty
+	private String cpf;
+	@NotEmpty
 	private String nomeConvidado;
 	
 	@ManyToOne
 	private Evento evento;
 
-	public String getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
-	public String getRg() {
-		return rg;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getNomeConvidado() {

@@ -29,13 +29,35 @@
 				</div>
 			</div>
 			
+			<h5>Adicionar Convidado</h5>
+			
 			<form method="post">
 				<div class="row">
 					<div class="input-field col s8">Nome: <input type="text" value="" name="nomeConvidado"/></div>
-					<div class="input-field col s4">RG: <input type="text" value="" name="rg"/></div>
+					<div class="input-field col s4">CPF: <input type="text" value="" name="cpf"/></div>
 				</div>
 				<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
 			</form>
+			
+			<br/>
+			
+			<h5>Lista de Convidados</h5>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>CPF</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="convidado : ${convidados}">
+						<td><span th:text="${convidado.nomeConvidado}"></span></td>
+						<td><span th:text="${convidado.cpf}"></span></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	
 		<script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
