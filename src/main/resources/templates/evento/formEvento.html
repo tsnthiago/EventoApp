@@ -22,15 +22,19 @@
 			
 			<form method="post">
 				<div class="row">
-					<div class="input-field col s12">Nome: <input type="text" value="" name="nome"/></div>			
+					<div class="input-field col s12">Nome: <input type="text" value="" name="nome" placeholder="Nome completo"/></div>			
 				</div>
 				<div class="row">
-					<div class="input-field col s6">Local: <input type="text" value="" name="local"/></div>
-					<div class="input-field col s3">Data: <input type="date" value="" name="data"/></div>
-					<div class="input-field col s3">Horario: <input type="text" value="" name="horario"/></div>
+					<div class="input-field col s6">Local: <input type="text" value="" name="local" placeholder="Local do evento"/></div>
+					<div class="input-field col s3">Data: <input type="date" value="" name="data" placeholder="Data do evento"/></div>
+					<div class="input-field col s3">Horario: <input type="text" value="" name="horario" placeholder="Horario do evento"/></div>
 				</div>
 				<button type="submit" class="waves-effect waves-light btn" href="/cadastrarEvento"><i class="material-icons left">save</i>Salvar</button>
 			</form>
+			
+			<br/><br/>
+			
+			<th:block th:include="mensagemValidacao"></th:block>
 		</div>
 		
 		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>

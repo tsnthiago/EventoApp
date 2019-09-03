@@ -31,11 +31,15 @@ public class EventoController {
 	}
 	
 	@RequestMapping(value = "/cadastrarEvento", method = RequestMethod.POST)
-	private String form(Evento evento) {
-		
-		er.save(evento);
-		
-		return "redirect:/cadastrarEvento";
+	private String form(@Valid Evento evento, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
+			return "redirect:/cadastrarEvento";
+		} else {
+			er.save(evento);
+			attributes.addFlashAttribute("mensagem", "Evento cadastrado com sucesso!");
+			return "redirect:/cadastrarEvento";
+		}
 	}
 	
 	@RequestMapping("/eventos")
@@ -67,7 +71,7 @@ public class EventoController {
 			Evento evento = er.findByCodigo(codigo);
 			convidado.setEvento(evento);
 			cr.save(convidado);
-			attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso!");
+			attributes.addFlashAttribute("mensagem", "Convidado cadastrado com sucesso!");
 			return "redirect:/eventos/{codigo}";
 		}
 	}

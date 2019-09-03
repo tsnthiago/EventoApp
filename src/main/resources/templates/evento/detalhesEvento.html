@@ -33,11 +33,15 @@
 			
 			<form method="post">
 				<div class="row">
-					<div class="input-field col s8">Nome: <input type="text" value="" name="nomeConvidado"/></div>
-					<div class="input-field col s4">CPF: <input type="text" value="" name="cpf"/></div>
+					<div class="input-field col s8">Nome: <input type="text" value="" name="nomeConvidado" placeholder="Nome completo"/></div>
+					<div class="input-field col s4">CPF: <input type="text" value="" name="cpf" placeholder="000.000.000-00"/></div>
 				</div>
 				<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
 			</form>
+			
+			<br/><br/>
+			
+			<th:block th:include="mensagemValidacao"></th:block>
 			
 			<br/>
 			
